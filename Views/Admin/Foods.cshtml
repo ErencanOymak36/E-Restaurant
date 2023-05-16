@@ -1,0 +1,66 @@
+﻿@using E_Restaurant.Models.Classes
+@model List<Foods>
+@{
+    ViewBag.Title = "Foods";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<h2 style="margin-top:15px;">YEMEKLER</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Yemek Id</th>
+        <th>Yemek Adı</th>
+        <th>Yemek Fiyatı</th>
+        <th>Yemek Kategorisi</th>
+        <th>Fotoğraf İsmi</th>
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FoodId</td>
+                <td>@item.FoodName</td>
+                <td>@item.Price</td>
+                <td>@item.FoodCategoryId</td>
+                <td>@item.PhotoPath</td>
+            </tr>
+        }
+    </tbody>
+    
+
+</table>
+<button type="button" Class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Ürün Ekle</button>
+<div Class="modal" id="Modal1">
+    <div Class="modal-dialog">
+        <div Class="modal-content">
+            <div Class="modal-header">
+                <h2 Class="modal-title">Yeni Ürün Ekle</h2>
+            </div>
+            <form method="post" action="/Admin/AddFood/">
+                <div Class="modal-body">
+                    <div>
+                        <label>İçecek Adı</label>
+                        <input type="text" class=" form-control" name="FoodName" />
+                    </div>
+                    <div>
+                        <label>Fiyat</label>
+                        <input type="text" class=" form-control" name="Price" />
+                    </div>
+                    <div>
+                        <label>İçecek Kategorisi</label>
+                        <input type="text" class=" form-control" name="FoodCategoryId" />
+                    </div>
+                    <div>
+                        <label>Fotoğraf İsmi</label>
+                        <input type="text" class=" form-control" name="PhotoPath" />
+                    </div>
+                    <Button type="submit" Class="btn btn-info" style="margin-top:15px;">Ekle</Button>
+                    <Button type="button" Class="btn btn-danger" data-dismiss="modal" style="margin-top:15px;">İptal Et</Button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

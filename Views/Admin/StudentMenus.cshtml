@@ -1,0 +1,60 @@
+﻿@using E_Restaurant.Models.Classes
+@model List<StudentMenu>
+@{
+    ViewBag.Title = "StudentMenus";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 style="margin-top:15px;">Öğrenci Menüleri</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Menü Id</th>
+        <th>Menü Adı</th>
+        <th>Menü Fiyatı</th>
+        <th>Fotoğraf İsmi</th>
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MenuId</td>
+                <td>@item.MenuName</td>
+                <td>@item.Price</td>
+                <td>@item.PhotoPath</td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+<button type="button" Class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Ürün Ekle</button>
+<div Class="modal" id="Modal1">
+    <div Class="modal-dialog">
+        <div Class="modal-content">
+            <div Class="modal-header">
+                <h2 Class="modal-title">Yeni Ürün Ekle</h2>
+            </div>
+            <form method="post" action="/Admin/AddStudenMenu/">
+                <div Class="modal-body">
+                    <div>
+                        <label>Menü Adı</label>
+                        <input type="text" class=" form-control" name="MenuName" />
+                    </div>
+                    <div>
+                        <label>Fiyat</label>
+                        <input type="text" class=" form-control" name="Price" />
+                    </div>
+                    <div>
+                        <label>Fotoğraf İsmi</label>
+                        <input type="text" class=" form-control" name="PhotoPath" />
+                    </div>
+                    <Button type="submit" Class="btn btn-info" style="margin-top:15px;">Ekle</Button>
+                    <Button type="button" Class="btn btn-danger" data-dismiss="modal" style="margin-top:15px;">İptal Et</Button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
