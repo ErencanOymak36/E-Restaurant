@@ -1,3 +1,9 @@
 # E-Restaurant
 
-MVC yapısını öğrenirken ilk yapmıştır olduğum projedir. Generic yapıya sahip değildir.
+MVC yapısını kullanarak yapmış olduğum 2.projedir.
+
+Code-first
+CRUD işlemleri
+Kullanıcı Arayüzü
+Login İşlemleri
+Admin Paneli
